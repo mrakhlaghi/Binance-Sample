@@ -52,7 +52,8 @@ export default function Dashboard() {
         setLiveSymbolPrice("0.00");
       }
     };
-    changeSymbolLivePrice();
+    const intervalId = setInterval(changeSymbolLivePrice, 3000);
+    return () => clearInterval(intervalId);
   }, [searchParams]);
 
   useEffect(() => {
